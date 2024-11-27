@@ -1,14 +1,104 @@
-/* Accordéon Container */
-.accordeon {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 100%;
-    margin: 20px auto;
-    overflow-x: auto; /* Permet le défilement horizontal */
-    padding: 10px;
-    scrollbar-width: thin; /* Style des scrollbars pour Firefox */
-    scrollbar-color: #ccc transparent;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
   }
   
+  .accordeon {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+  }
   
+  details {
+    min-width: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: min-width 0.3s ease;
+  }
+  
+  summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  summary:hover {
+    background-color: #e0e0e0;
+  }
+  
+  summary img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  details[open] {
+    min-width: 400px;
+  }
+  
+  details[open] summary {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  details > div {
+    padding: 15px;
+  }
+  
+  details[open] {
+    display: flex;
+  }
+  
+  details[open] summary {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+  }
+  
+  details[open] > div {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  p {
+    margin-bottom: 0;
+    color: #666;
+  }
+  
+ 
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  summary::marker {
+    display: none;
+  }
+ 
+  .accordeon::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .accordeon::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .accordeon::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 4px;
+  }
+  
+  .accordeon::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+  }
